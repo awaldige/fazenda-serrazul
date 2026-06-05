@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventos | SerrAzul</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+      <!-- FAVICON -->
+<link rel="icon" type="image/png" href="img/favicon serrazul II.png">
+<link rel="shortcut icon" href="img/favicon serrazul II.png">
+<link rel="apple-touch-icon" href="img/favicon serrazul II.png">
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        :root{
+
+            --gold:#d4af37;
+            --gold-light:#f5d77a;
+
+            --navy:#071524;
+            --navy-light:#0c2744;
+
+            --white:#ffffff;
+            --light:#f5f7fa;
+
+            --text:#2f3640;
+            --text-light:#6d7785;
+
+            --shadow:
+            0 12px 35px rgba(0,0,0,0.08);
+
+            --shadow-hover:
+            0 25px 45px rgba(0,0,0,0.16);
+
+            --transition:
+            all 0.35s ease;
+
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            font-family:'Montserrat',sans-serif;
+
+            background:var(--light);
+
+            color:var(--text);
+
+            line-height:1.7;
+
+            overflow-x:hidden;
+
+        }
+
+        .container{
+
+            width:100%;
+            max-width:1240px;
+
+            margin:auto;
+
+            padding:0 24px;
+
+        }
+
+        /* =========================
+   NAVBAR MODERNA
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:#07182d;
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+
+.navbar-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:88px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo a{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:125px;
+    width:auto;
+    object-fit:contain;
+    mix-blend-mode:lighten;
+    transition:.35s ease;
+}
+
+.logo img:hover{
+    transform:scale(1.02);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    position:relative;
+    transition:.3s ease;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:linear-gradient(90deg,#d4af37,#f5d77a);
+    transition:.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#f5d87c;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:32px;
+    cursor:pointer;
+}
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero{
+
+            position:relative;
+
+            height:100vh;
+
+            min-height:720px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            text-align:center;
+
+            overflow:hidden;
+
+            color:white;
+
+        }
+
+        .hero-slider{
+
+            position:absolute;
+
+            inset:0;
+
+            z-index:1;
+
+        }
+
+        .hero-slide{
+
+            position:absolute;
+
+            inset:0;
+
+            background-size:cover;
+
+            background-position:center;
+
+            opacity:0;
+
+            transform:scale(1.08);
+
+            transition:
+            opacity 1.5s ease-in-out,
+            transform 8s ease;
+
+        }
+
+        .slide-1{
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.70)
+            ),
+            url('img/imagem1.webp') center/cover;
+
+        }
+
+        .slide-2{
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.70)
+            ),
+            url('img/imagem2.webp') center/cover;
+
+        }
+
+        .slide-3{
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.70)
+            ),
+            url('img/imagem3.webp') center/cover;
+
+        }
+
+        .slide-4{
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.70)
+            ),
+            url('img/imagem4.webp') center/cover;
+
+        }
+
+        .hero-slide.active{
+
+            opacity:1;
+
+            transform:scale(1);
+
+        }
+
+        .hero-overlay{
+
+            position:absolute;
+
+            inset:0;
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.40),
+                rgba(0,0,0,0.60)
+            );
+
+            z-index:2;
+
+        }
+
+        .hero::before{
+
+            content:'';
+
+            position:absolute;
+
+            inset:0;
+
+            background:
+            radial-gradient(
+                circle at top,
+                rgba(255,255,255,0.15),
+                transparent 60%
+            );
+
+            z-index:2;
+
+        }
+
+        .hero-content{
+
+            position:relative;
+
+            z-index:3;
+
+            max-width:900px;
+
+            padding:0 24px;
+
+            animation:fadeUp 1s ease;
+
+        }
+
+        @keyframes fadeUp{
+
+            from{
+
+                opacity:0;
+                transform:translateY(40px);
+
+            }
+
+            to{
+
+                opacity:1;
+                transform:translateY(0);
+
+            }
+
+        }
+
+        .hero-badge{
+
+            display:inline-block;
+
+            padding:12px 24px;
+
+            border-radius:50px;
+
+            background:
+            rgba(212,175,55,0.14);
+
+            border:
+            1px solid rgba(212,175,55,0.45);
+
+            color:#f5d77a;
+
+            margin-bottom:28px;
+
+            letter-spacing:2px;
+
+            font-size:0.82rem;
+
+            font-weight:700;
+
+            text-transform:uppercase;
+
+            backdrop-filter:blur(8px);
+
+        }
+
+        .hero h1{
+
+            font-size:
+            clamp(2.8rem,6vw,5rem);
+
+            line-height:1.08;
+
+            margin-bottom:26px;
+
+            font-weight:800;
+
+            text-shadow:
+            0 8px 25px rgba(0,0,0,0.35);
+
+        }
+
+        .hero p{
+
+            font-size:1.12rem;
+
+            line-height:1.9;
+
+            color:
+            rgba(255,255,255,0.92);
+
+            max-width:760px;
+
+            margin:auto;
+
+        }
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        .section-padding{
+
+            padding:110px 0;
+
+        }
+
+        .section-title{
+
+            text-align:center;
+
+            font-size:
+            clamp(2.2rem,4vw,3.2rem);
+
+            color:var(--navy);
+
+            margin-bottom:20px;
+
+            font-weight:800;
+
+        }
+
+        .section-subtitle{
+
+            text-align:center;
+
+            max-width:760px;
+
+            margin:0 auto 65px;
+
+            color:var(--text-light);
+
+            font-size:1.05rem;
+
+        }
+
+        /* =========================================================
+           EVENTOS
+        ========================================================= */
+
+        .event-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(320px,1fr));
+
+            gap:36px;
+
+        }
+
+        .event-card{
+
+            background:white;
+
+            border-radius:28px;
+
+            overflow:hidden;
+
+            box-shadow:var(--shadow);
+
+            transition:var(--transition);
+
+        }
+
+        .event-card:hover{
+
+            transform:
+            translateY(-12px);
+
+            box-shadow:
+            var(--shadow-hover);
+
+        }
+
+        .event-image{
+
+            width:100%;
+
+            height:240px;
+
+            object-fit:cover;
+
+        }
+
+        .event-content{
+
+            padding:34px;
+
+        }
+
+        .event-date{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            padding:10px 18px;
+
+            border-radius:50px;
+
+            background:
+            linear-gradient(
+                135deg,
+                var(--gold),
+                var(--gold-light)
+            );
+
+            color:var(--navy);
+
+            font-weight:700;
+
+            font-size:0.82rem;
+
+            margin-bottom:20px;
+
+        }
+
+        .event-content h3{
+
+            font-size:1.5rem;
+
+            color:var(--navy);
+
+            margin-bottom:18px;
+
+            font-weight:800;
+
+        }
+
+        .event-content p{
+
+            color:var(--text-light);
+
+            line-height:1.9;
+
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-section{
+
+            position:relative;
+
+            overflow:hidden;
+
+            background:
+            linear-gradient(
+                135deg,
+                #071524,
+                #0c2744
+            );
+
+            color:white;
+
+            text-align:center;
+
+        }
+
+        .cta-section::before{
+
+            content:'';
+
+            position:absolute;
+
+            inset:0;
+
+            background:
+            radial-gradient(
+                circle at top,
+                rgba(255,255,255,0.08),
+                transparent 60%
+            );
+
+        }
+
+        .cta-section .container{
+
+            position:relative;
+
+            z-index:2;
+
+        }
+
+        .title-gold{
+
+            color:var(--gold-light);
+
+            font-size:
+            clamp(2rem,4vw,3rem);
+
+            margin-bottom:24px;
+
+            font-weight:800;
+
+        }
+
+        .btn-primary{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            margin-top:36px;
+
+            padding:16px 38px;
+
+            border-radius:50px;
+
+            text-decoration:none;
+
+            background:
+            linear-gradient(
+                135deg,
+                var(--gold),
+                var(--gold-light)
+            );
+
+            color:var(--navy);
+
+            font-weight:800;
+
+            transition:var(--transition);
+
+            box-shadow:
+            0 15px 35px rgba(212,175,55,0.25);
+
+        }
+
+        .btn-primary:hover{
+
+            transform:
+            translateY(-4px);
+
+            box-shadow:
+            0 22px 45px rgba(212,175,55,0.35);
+
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .main-footer{
+
+            background:
+            linear-gradient(
+                180deg,
+                #07111b,
+                #03070c
+            );
+
+            color:white;
+
+            padding:45px 0;
+
+            text-align:center;
+
+            border-top:
+            1px solid rgba(255,255,255,0.08);
+
+        }
+
+        .main-footer p{
+
+            margin:8px 0;
+
+            color:
+            rgba(255,255,255,0.72);
+
+        }
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
+
+        @media(max-width:768px){
+
+            .navbar-container{
+
+                min-height:85px;
+
+            }
+
+            .logo img{
+
+                height:64px;
+
+            }
+
+            .nav-links{
+
+                gap:18px;
+
+            }
+
+            .nav-links a{
+
+                font-size:0.74rem;
+
+            }
+
+            .hero{
+
+                min-height:auto;
+
+                padding:
+                180px 0 120px;
+
+                height:auto;
+
+            }
+
+            .hero p{
+
+                font-size:1rem;
+
+            }
+
+            .section-padding{
+
+                padding:85px 0;
+
+            }
+
+            .event-content{
+
+                padding:28px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="container navbar-container">
+
+        <div class="logo">
+
+            <img
+                src="img/logo serrazul.webp"
+                alt="Logo Serra Azul">
+
+        </div>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="beneficios.html" class="active">
+                        Benefícios
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-slider">
+
+        <div class="hero-slide slide-1 active"></div>
+
+        <div class="hero-slide slide-2"></div>
+
+        <div class="hero-slide slide-3"></div>
+
+        <div class="hero-slide slide-4"></div>
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-badge">
+            SerrAzul II
+        </p>
+
+        <h1>
+            Eventos Exclusivos
+        </h1>
+
+        <p>
+
+            Momentos especiais que fortalecem
+            a convivência, integração e qualidade
+            de vida da comunidade SerrAzul.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- EVENTOS -->
+<section class="section-padding">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Próximos Eventos
+        </h2>
+
+        <p class="section-subtitle">
+
+            Acompanhe as atividades, encontros
+            e celebrações promovidas para
+            associados e moradores.
+
+        </p>
+
+        <div class="event-grid">
+
+            <!-- EVENTO 1 -->
+            <div class="event-card">
+
+                <img
+                    src="img/evento-festa.webp"
+                    alt="Festa da Comunidade"
+                    class="event-image">
+
+                <div class="event-content">
+
+                    <span class="event-date">
+                        Agosto 2026
+                    </span>
+
+                    <h3>
+                        Festa da Comunidade
+                    </h3>
+
+                    <p>
+
+                        Evento especial com música,
+                        integração familiar,
+                        gastronomia e atividades
+                        para todas as idades.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- EVENTO 2 -->
+            <div class="event-card">
+
+                <img
+                    src="img/evento-esporte.webp"
+                    alt="Torneio Esportivo"
+                    class="event-image">
+
+                <div class="event-content">
+
+                    <span class="event-date">
+                        Setembro 2026
+                    </span>
+
+                    <h3>
+                        Torneio Esportivo
+                    </h3>
+
+                    <p>
+
+                        Campeonato recreativo promovendo
+                        integração, lazer e espírito
+                        esportivo entre associados.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- EVENTO 3 -->
+            <div class="event-card">
+
+                <img
+                    src="img/evento-cultural.webp"
+                    alt="Evento Cultural"
+                    class="event-image">
+
+                <div class="event-content">
+
+                    <span class="event-date">
+                        Outubro 2026
+                    </span>
+
+                    <h3>
+                        Encontro Cultural
+                    </h3>
+
+                    <p>
+
+                        Atividades culturais,
+                        apresentações e experiências
+                        voltadas à valorização
+                        da comunidade.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="section-padding cta-section">
+
+    <div class="container">
+
+        <h2 class="title-gold">
+
+            Participe dos próximos eventos
+
+        </h2>
+
+        <p style="max-width:750px; margin:auto; line-height:1.9;">
+
+            O Serra Azul promove experiências únicas
+            para fortalecer a convivência e criar
+            momentos especiais entre moradores
+            e associados.
+
+        </p>
+
+        <a href="newsletter.html" class="btn-primary">
+
+            Receber Informativos
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+
+    <div class="container">
+
+        <p>
+
+            © 2026 SerrAzul • Todos os direitos reservados
+
+        </p>
+
+        <p>
+
+            Transparência • Comunidade • Evolução
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- SCRIPT HERO -->
+<script>
+
+    const slides =
+    document.querySelectorAll('.hero-slide');
+
+    let currentSlide = 0;
+
+    function changeSlide(){
+
+        slides[currentSlide]
+        .classList.remove('active');
+
+        currentSlide++;
+
+        if(currentSlide >= slides.length){
+
+            currentSlide = 0;
+
+        }
+
+        slides[currentSlide]
+        .classList.add('active');
+
+    }
+
+    setInterval(changeSlide, 5000);
+
+</script>
+
+</body>
+
+</html>
