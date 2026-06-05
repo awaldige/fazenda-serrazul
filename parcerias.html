@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Parcerias | SerrAzul</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+ <!-- FAVICON -->
+<link rel="icon" type="image/png" href="img/favicon serrazul II.png">
+<link rel="shortcut icon" href="img/favicon serrazul II.png">
+<link rel="apple-touch-icon" href="img/favicon serrazul II.png">
+     
+<style>
+
+/* =========================================================
+   RESET & ROOT
+========================================================= */
+
+:root{
+
+    --gold:#b59410;
+    --gold-light:#d8bb3a;
+    --gold-soft:rgba(181,148,16,0.10);
+
+    --navy:#102033;
+    --navy-dark:#0b1624;
+
+    --white:#ffffff;
+    --light:#f5f7fa;
+
+    --text:#2e3440;
+    --text-light:#6d7785;
+
+    --shadow:
+    0 14px 40px rgba(0,0,0,0.08);
+
+    --shadow-hover:
+    0 22px 55px rgba(0,0,0,0.14);
+
+    --transition:
+    all 0.35s ease;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    background:var(--light);
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+.container{
+
+    width:100%;
+    max-width:1240px;
+
+    margin:auto;
+
+    padding:0 24px;
+
+}
+
+/* =========================
+   NAVBAR MODERNA
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:#07182d;
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+
+.navbar-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:88px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo a{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:125px;
+    width:auto;
+    object-fit:contain;
+    mix-blend-mode:lighten;
+    transition:.35s ease;
+}
+
+.logo img:hover{
+    transform:scale(1.02);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    position:relative;
+    transition:.3s ease;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:linear-gradient(90deg,#d4af37,#f5d77a);
+    transition:.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#f5d87c;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:32px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    height:100vh;
+
+    min-height:720px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.hero-slider{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+}
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0;
+
+    transform:scale(1.08);
+
+    transition:
+    opacity 1.5s ease-in-out,
+    transform 8s ease;
+
+}
+
+.slide-1{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.50),
+        rgba(0,0,0,0.70)
+    ),
+    url('img/imagem1.webp') center/cover;
+
+}
+
+.slide-2{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.50),
+        rgba(0,0,0,0.70)
+    ),
+    url('img/imagem2.webp') center/cover;
+
+}
+
+.slide-3{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.50),
+        rgba(0,0,0,0.70)
+    ),
+    url('img/imagem3.webp') center/cover;
+
+}
+
+.slide-4{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.50),
+        rgba(0,0,0,0.70)
+    ),
+    url('img/imagem4.webp') center/cover;
+
+}
+
+.hero-slide.active{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.50)
+    );
+
+    z-index:2;
+
+}
+
+.hero::before{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(255,255,255,0.15),
+        transparent 60%
+    );
+
+    z-index:2;
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:3;
+
+    max-width:900px;
+
+    padding:0 24px;
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 26px;
+
+    border-radius:50px;
+
+    background:
+    rgba(181,148,16,0.16);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    color:#fff3c2;
+
+    margin-bottom:28px;
+
+    font-size:0.82rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    backdrop-filter:blur(8px);
+
+}
+
+.hero h1{
+
+    font-size:
+    clamp(3rem,6vw,5.3rem);
+
+    line-height:1.05;
+
+    margin-bottom:26px;
+
+    font-weight:800;
+
+    text-shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+}
+
+.hero p{
+
+    font-size:1.12rem;
+
+    color:
+    rgba(255,255,255,0.92);
+
+    max-width:760px;
+
+    margin:auto;
+
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section-padding{
+
+    padding:110px 0;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    color:var(--navy);
+
+    font-size:
+    clamp(2.2rem,4vw,3.2rem);
+
+    margin-bottom:20px;
+
+    font-weight:800;
+
+}
+
+.section-subtitle{
+
+    text-align:center;
+
+    max-width:760px;
+
+    margin:0 auto 65px;
+
+    color:var(--text-light);
+
+    font-size:1.05rem;
+
+}
+
+/* =========================================================
+   PARTNERS GRID
+========================================================= */
+
+.partners-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:36px;
+
+}
+
+/* =========================================================
+   CARD PARCEIRO
+========================================================= */
+
+.partner-card{
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.partner-card::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:5px;
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--gold),
+        var(--gold-light)
+    );
+
+    z-index:2;
+
+}
+
+.partner-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    box-shadow:
+    var(--shadow-hover);
+
+}
+
+/* =========================================================
+   IMAGEM PARCEIRO
+========================================================= */
+
+.partner-image{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    background:white;
+
+    padding:24px;
+
+    display:block;
+
+    border-bottom:
+    1px solid rgba(0,0,0,0.06);
+
+}
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.partner-content{
+
+    padding:34px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.partner-content h3{
+
+    font-size:1.45rem;
+
+    color:var(--navy);
+
+    margin-bottom:18px;
+
+    font-weight:800;
+
+    line-height:1.35;
+
+}
+
+.partner-content p{
+
+    color:var(--text-light);
+
+    line-height:1.9;
+
+    margin-bottom:28px;
+
+    flex:1;
+
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:768px){
+
+    .partners-grid{
+
+        gap:28px;
+
+    }
+
+    .partner-image{
+
+        height:220px;
+
+        padding:18px;
+
+    }
+
+    .partner-content{
+
+        padding:26px;
+
+    }
+
+    .partner-content h3{
+
+        font-size:1.2rem;
+
+    }
+
+}
+
+.btn-beneficio{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px 30px;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--gold),
+        var(--gold-light)
+    );
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    box-shadow:
+    0 12px 30px rgba(181,148,16,0.26);
+
+}
+
+.btn-beneficio:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 18px 40px rgba(181,148,16,0.36);
+
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071524,
+        #0d2740
+    );
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.cta-section::before{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(255,255,255,0.08),
+        transparent 60%
+    );
+
+}
+
+.cta-section .container{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.title-gold{
+
+    color:var(--gold-light);
+
+    font-size:
+    clamp(2rem,4vw,3rem);
+
+    margin-bottom:24px;
+
+    font-weight:800;
+
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+
+    background:
+    linear-gradient(
+        180deg,
+        #07111b,
+        #03070c
+    );
+
+    color:white;
+
+    padding:45px 0;
+
+    text-align:center;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+}
+
+.main-footer p{
+
+    margin:8px 0;
+
+    color:
+    rgba(255,255,255,0.72);
+
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:768px){
+
+    .navbar-container{
+
+        min-height:85px;
+
+    }
+
+    .logo img{
+
+        height:70px;
+
+    }
+
+    .nav-links{
+
+        gap:18px;
+
+    }
+
+    .nav-links a{
+
+        font-size:0.72rem;
+
+    }
+
+    .hero{
+
+        min-height:auto;
+
+        height:auto;
+
+        padding:
+        180px 0 120px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.8rem;
+
+    }
+
+    .hero p{
+
+        font-size:1rem;
+
+    }
+
+    .section-padding{
+
+        padding:85px 0;
+
+    }
+
+    .partner-content{
+
+        padding:28px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="container navbar-container">
+
+        <div class="logo">
+
+            <img src="img/logo serrazul.webp" alt="Logo Serra Azul">
+
+        </div>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="beneficios.html" class="active">beneficios</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-slider">
+
+        <div class="hero-slide slide-1 active"></div>
+
+        <div class="hero-slide slide-2"></div>
+
+        <div class="hero-slide slide-3"></div>
+
+        <div class="hero-slide slide-4"></div>
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-badge">
+            SerrAzul II
+        </p>
+
+        <h1>
+            Clube de Parcerias
+        </h1>
+
+        <p>
+            Benefícios exclusivos, descontos especiais e vantagens para moradores e associados do SerrAzul através de empresas parceiras.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PARCEIROS -->
+<section class="section-padding">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Parceiros Conveniados
+        </h2>
+
+        <p class="section-subtitle">
+
+            Conheça empresas e estabelecimentos parceiros que oferecem benefícios especiais para a comunidade Serra Azul.
+
+        </p>
+
+        <div class="partners-grid">
+
+            <!-- OUTLET -->
+            <div class="partner-card">
+
+                <img src="img/outlet-premium.webp" alt="Outlet Premium" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Outlet Premium São Paulo
+                    </h3>
+
+                    <p>
+                        Benefícios especiais em compras e experiências exclusivas para associados.
+                    </p>
+
+                    <a href="https://outletpremium.com.br/clientepremium-athletes/sao-paulo/fazenda-serrazul"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                       Confira os Benefícios
+
+                     </a>
+
+                </div>
+
+            </div>
+
+            <!-- CYAN -->
+            <div class="partner-card">
+
+                <img src="img/cyan-resort.webp" alt="Cyan Resort" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Cyan Resort
+                    </h3>
+
+                    <p>
+                        Descontos e condições especiais em hospedagem e lazer para moradores.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/04/CYAN.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- HOPI HARI -->
+            <div class="partner-card">
+
+                <img src="img/hopi-hari.webp" alt="Hopi Hari" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Hopi Hari
+                    </h3>
+
+                    <p>
+                        Diversão garantida com vantagens exclusivas no parque temático.
+                    </p>
+
+                    <a href="https://www.hopihari.com.br/"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- WET -->
+            <div class="partner-card">
+
+                <img src="img/wetwild.webp" alt="Wet'n Wild" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Wet'n Wild
+                    </h3>
+
+                    <p>
+                        Ingressos e promoções especiais para lazer em família.
+                    </p>
+
+                    <a href="https://wetshop.wetnwild.com.br/parceiro/fazendaserraazul"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- NOVOTEL -->
+            <div class="partner-card">
+
+                <img src="img/novotel.webp" alt="Novotel" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Novotel
+                    </h3>
+
+                    <p>
+                        Hospedagem com conforto e tarifas diferenciadas para associados.
+                    </p>
+
+                    <a href="https://novotel.accor.com/"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- GOLFE -->
+            <div class="partner-card">
+
+                <img src="img/golfe.webp" alt="Golfe Club" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Terras de São José Golfe Club
+                    </h3>
+
+                    <p>
+                        Benefícios exclusivos para prática esportiva e momentos de lazer.
+                    </p>
+
+                    <a href="https://tsjgc.com.br/"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- NATHANS -->
+            <div class="partner-card">
+
+                <img src="img/nathans.webp" alt="Nathan's Famous" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Nathan's Famous
+                    </h3>
+
+                    <p>
+                        Vantagens especiais em gastronomia e refeições para associados.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/05/flyer-outlet-imp.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- BUFFET -->
+            <div class="partner-card">
+
+                <img src="img/buffet.webp" alt="Hole & Pérola Buffet" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Hole & Pérola Buffet
+                    </h3>
+
+                    <p>
+                        Condições especiais para eventos e confraternizações.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/05/Parceria-Hole-19-e-Serra-Azul.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- AMARELINHA -->
+            <div class="partner-card">
+
+                <img src="img/amarelinha.webp" alt="Amarelinha Tintas" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Amarelinha Tintas
+                    </h3>
+
+                    <p>
+                        Descontos em tintas, materiais e soluções para reformas.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/06/SerraAzul_5_6x_.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- PETNIVA -->
+            <div class="partner-card">
+
+                <img src="img/petniva.webp" alt="Petniva" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Petniva
+                    </h3>
+
+                    <p>
+                        Benefícios especiais em produtos e serviços para pets.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/07/Pet.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- EMPORIO -->
+            <div class="partner-card">
+
+                <img src="img/emporio.webp" alt="Empório dos Primos" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Empório dos Primos
+                    </h3>
+
+                    <p>
+                        Vantagens e descontos em produtos selecionados e conveniência.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/07/Primos.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- 5ASEC -->
+            <div class="partner-card">
+
+                <img src="img/5asec.webp" alt="5àsec" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        5àsec
+                    </h3>
+
+                    <p>
+                        Benefícios exclusivos em lavanderia e cuidados têxteis.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/07/5asec.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SCALLA -->
+            <div class="partner-card">
+
+                <img src="img/scalla.webp" alt="Scalla Lavanderia" class="partner-image">
+
+                <div class="partner-content">
+
+                    <h3>
+                        Scalla Lavanderia
+                    </h3>
+
+                    <p>
+                        Desconto especial em lavanderia, passadoria e higienização para moradores do Serra Azul.
+                    </p>
+
+                    <a href="https://admserrazul2.com.br/wp-content/uploads/2025/07/Lavanderia-S.pdf"
+                       class="btn-beneficio"
+                       target="_blank"
+                       rel="noopener">
+
+                        Confira os Benefícios
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="section-padding cta-section">
+
+    <div class="container">
+
+        <h2 class="title-gold">
+            Aproveite os benefícios
+        </h2>
+
+        <p style="max-width:750px; margin:auto; line-height:1.9;">
+
+            O Clube de Benefícios Serra Azul busca oferecer mais vantagens, economia e experiências exclusivas para toda a comunidade.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 SerrAzul • Todos os direitos reservados
+        </p>
+
+        <p>
+            Transparência • Comunidade • Evolução
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- SCRIPT CARROSSEL -->
+<script>
+
+const slides = document.querySelectorAll('.hero-slide');
+
+let currentSlide = 0;
+
+function changeSlide(){
+
+    slides[currentSlide].classList.remove('active');
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+
+        currentSlide = 0;
+
+    }
+
+    slides[currentSlide].classList.add('active');
+
+}
+
+setInterval(changeSlide,5000);
+
+</script>
+
+</body>
+
+</html>
