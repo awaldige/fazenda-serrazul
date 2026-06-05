@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Eventos e Integração | Serra Azul
+    </title>
+    
+ <!-- FAVICON -->
+<link rel="icon" type="image/png" href="img/favicon serrazul II.png">
+<link rel="shortcut icon" href="img/favicon serrazul II.png">
+<link rel="apple-touch-icon" href="img/favicon serrazul II.png">
+
+
+
+
+    <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --gold:#d4af37;
+    --gold-light:#f5d77a;
+
+    --navy:#071524;
+    --navy-light:#0c2744;
+
+    --white:#ffffff;
+    --light:#f5f7fa;
+
+    --text:#2f3640;
+    --text-light:#6d7785;
+
+    --shadow:
+    0 12px 35px rgba(0,0,0,0.08);
+
+    --shadow-hover:
+    0 25px 45px rgba(0,0,0,0.16);
+
+    --transition:
+    all 0.35s ease;
+
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    background:var(--light);
+
+    color:var(--text);
+
+    line-height:1.8;
+
+    overflow-x:hidden;
+
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
+    width:100%;
+    max-width:1240px;
+
+    margin:auto;
+
+    padding:0 24px;
+
+}
+
+.max-900{
+
+    max-width:900px;
+
+}
+
+/* =========================
+   NAVBAR MODERNA
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:#07182d;
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+
+.navbar-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:88px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo a{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:125px;
+    width:auto;
+    object-fit:contain;
+    mix-blend-mode:lighten;
+    transition:.35s ease;
+}
+
+.logo img:hover{
+    transform:scale(1.02);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    position:relative;
+    transition:.3s ease;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:linear-gradient(90deg,#d4af37,#f5d77a);
+    transition:.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#f5d87c;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:32px;
+    cursor:pointer;
+}
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.menu-toggle span{
+
+    display:block;
+
+    width:28px;
+    height:3px;
+
+    margin:5px 0;
+
+    border-radius:30px;
+
+    background:#fff;
+
+    transition:0.3s ease;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:768px){
+
+    .navbar-container{
+
+        min-height:72px;
+    }
+
+    .logo img{
+
+        height:88px;
+    }
+
+    .menu-toggle{
+
+        display:block;
+    }
+
+    #nav-menu{
+
+        position:absolute;
+
+        top:100%;
+        left:0;
+
+        width:100%;
+
+        padding:28px;
+
+        background:
+        linear-gradient(
+            to bottom,
+            rgba(7,21,36,0.98),
+            rgba(7,21,36,0.95)
+        );
+
+        border-top:
+        1px solid rgba(255,255,255,0.05);
+
+        display:none;
+    }
+
+    #nav-menu.active{
+
+        display:block;
+    }
+
+    .nav-links{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:22px;
+    }
+}
+
+/* =========================================================
+   HERO PREMIUM COM CARROSSEL
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    color:white;
+
+}
+
+.small-hero{
+
+    min-height:620px;
+
+    padding:
+    220px 0 140px;
+
+}
+
+/* =========================================================
+   HERO SLIDER
+========================================================= */
+
+.hero-slider{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+}
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    transform:scale(1.08);
+
+    transition:
+    opacity 1.5s ease-in-out,
+    transform 8s ease;
+
+}
+
+/* IMAGENS */
+
+.slide-1{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.72)
+    ),
+    url('img/imagem1.webp') center/cover;
+
+}
+
+.slide-2{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.72)
+    ),
+    url('img/imagem2.webp') center/cover;
+
+}
+
+.slide-3{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.72)
+    ),
+    url('img/imagem3.webp') center/cover;
+
+}
+
+.slide-4{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.72)
+    ),
+    url('img/imagem4.webp') center/cover;
+
+}
+
+.hero-slide.active{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/* OVERLAY */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.50)
+    );
+
+    z-index:2;
+
+}
+
+/* BRILHO */
+
+.hero::before{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(255,255,255,0.12),
+        transparent 60%
+    );
+
+    z-index:2;
+
+}
+
+/* CONTEÚDO */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:3;
+
+    max-width:850px;
+
+    padding:0 24px;
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    background:
+    rgba(212,175,55,0.14);
+
+    border:
+    1px solid rgba(212,175,55,0.45);
+
+    color:#f5d77a;
+
+    margin-bottom:28px;
+
+    letter-spacing:2px;
+
+    font-size:0.82rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    backdrop-filter:blur(8px);
+
+}
+
+.hero h1{
+
+    font-size:
+    clamp(2.8rem,6vw,5rem);
+
+    line-height:1.08;
+
+    margin-bottom:24px;
+
+    font-weight:800;
+
+    text-shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+}
+
+.hero-description{
+
+    font-size:1.12rem;
+
+    line-height:1.9;
+
+    color:
+    rgba(255,255,255,0.92);
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section-padding{
+
+    padding:110px 0;
+
+}
+
+.white-bg{
+
+    background:white;
+
+}
+
+/* =========================================================
+   ARTICLE PREMIUM
+========================================================= */
+
+.article-content{
+
+    background:white;
+
+    border-radius:32px;
+
+    padding:50px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.article-image{
+
+    width:100%;
+
+    height:460px;
+
+    object-fit:cover;
+
+    border-radius:24px;
+
+    margin-bottom:40px;
+
+}
+
+.article-content p{
+
+    font-size:1.05rem;
+
+    color:var(--text-light);
+
+    margin-bottom:26px;
+
+    line-height:2;
+
+}
+
+/* =========================================================
+   LISTA PREMIUM
+========================================================= */
+
+.event-list{
+
+    margin:40px 0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+.event-list li{
+
+    background:#f8fafc;
+
+    border-left:5px solid var(--gold);
+
+    padding:24px 28px;
+
+    border-radius:18px;
+
+    color:var(--text-light);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.04);
+
+}
+
+.event-list strong{
+
+    color:var(--navy);
+
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+blockquote{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0c2744,
+        #071524
+    );
+
+    color:white;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    margin-top:50px;
+
+    font-size:1.15rem;
+
+    line-height:2;
+
+    font-style:italic;
+
+    position:relative;
+
+}
+
+blockquote::before{
+
+    content:'“';
+
+    position:absolute;
+
+    top:-20px;
+    left:20px;
+
+    font-size:6rem;
+
+    color:rgba(212,175,55,0.25);
+
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn-primary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px 38px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--gold),
+        var(--gold-light)
+    );
+
+    color:var(--navy);
+
+    font-weight:800;
+
+    transition:var(--transition);
+
+    box-shadow:
+    0 15px 35px rgba(212,175,55,0.25);
+
+}
+
+.btn-primary:hover{
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 22px 45px rgba(212,175,55,0.35);
+
+}
+
+.mt-40{
+
+    margin-top:40px;
+
+}
+
+/* =========================================================
+   FOOTER PREMIUM
+========================================================= */
+
+.main-footer{
+
+    background:
+    linear-gradient(
+        180deg,
+        #07111b,
+        #03070c
+    );
+
+    color:white;
+
+    padding:45px 0;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+}
+
+.footer-bottom{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    gap:10px;
+
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:
+    rgba(255,255,255,0.72);
+
+    font-size:0.95rem;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:768px){
+
+    .navbar-container{
+
+        min-height:85px;
+
+    }
+
+    .logo img{
+
+        height:125px;
+
+    }
+
+    .nav-links{
+
+        gap:18px;
+
+    }
+
+    .nav-links a{
+
+        font-size:0.74rem;
+
+    }
+
+    .small-hero{
+
+        min-height:auto;
+
+        padding:
+        190px 0 120px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.5rem;
+
+    }
+
+    .hero-description{
+
+        font-size:1rem;
+
+    }
+
+    .section-padding{
+
+        padding:80px 0;
+
+    }
+
+    .article-content{
+
+        padding:30px;
+
+    }
+
+    .article-image{
+
+        height:260px;
+
+    }
+
+    blockquote{
+
+        padding:30px 24px;
+
+        font-size:1rem;
+
+    }
+
+    .footer-bottom p{
+
+        font-size:0.88rem;
+
+    }
+
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container navbar-container">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img src="img/logo serrazul.webp" alt="Logo Serra Azul">
+
+            </a>
+
+        </div>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li><a href="index.html">Home</a></li>
+                <li><a href="newsletter.html" class="active">Newsletter</a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero small-hero">
+
+    <div class="hero-slider">
+
+        <div class="hero-slide slide-1 active"></div>
+        <div class="hero-slide slide-2"></div>
+        <div class="hero-slide slide-3"></div>
+        <div class="hero-slide slide-4"></div>
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            EVENTOS
+        </span>
+
+        <h1>
+            Eventos e Integração no Serra Azul
+        </h1>
+
+        <p class="hero-description">
+            Programações especiais para fortalecer
+            a convivência, o lazer e os momentos
+            inesquecíveis entre associados e famílias.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="section-padding white-bg">
+
+    <div class="container max-900 article-content">
+
+        <img
+            src="img/materia evento.webp"
+            alt="Eventos Serra Azul"
+            class="article-image">
+
+        <p>
+
+            O SerrAzul prepara uma nova agenda
+            de eventos e atividades especiais para
+            promover integração, lazer e convivência
+            entre os associados.
+
+        </p>
+
+        <p>
+
+            A proposta inclui ações sociais,
+            eventos temáticos, encontros familiares
+            e torneios esportivos em diferentes
+            modalidades.
+
+        </p>
+
+        <ul class="event-list">
+
+            <li>
+                <strong>Eventos Temáticos:</strong>
+                confraternizações, encontros sociais
+                e atividades especiais ao longo do ano.
+            </li>
+
+            <li>
+                <strong>Competições Esportivas:</strong>
+                torneios de futebol, beach tennis,
+                tênis e atividades recreativas.
+            </li>
+
+            <li>
+                <strong>Integração Familiar:</strong>
+                ações voltadas para convivência,
+                diversão e fortalecimento da comunidade.
+            </li>
+
+        </ul>
+
+        <blockquote>
+
+            “Nosso objetivo é criar um ambiente cada vez
+            mais harmonioso, acolhedor e participativo
+            para todos os associados.”
+
+        </blockquote>
+
+        <a href="newsletter.html" class="btn-primary mt-40">
+
+            ← Voltar para Newsletter
+
+        </a>
+
+    </div>
+
+</section>
+
+<footer class="main-footer">
+
+    <div class="container footer-bottom">
+
+        <p>
+            © 2026 Fazenda SerrAzul
+        </p>
+
+        <p>
+            Desenvolvido por AW Tecnology
+        </p>
+
+    </div>
+
+</footer>
+
+<script>
+
+const slides = document.querySelectorAll('.hero-slide');
+
+let currentSlide = 0;
+
+function changeSlide(){
+
+    slides[currentSlide]
+    .classList.remove('active');
+
+    currentSlide =
+    (currentSlide + 1)
+    % slides.length;
+
+    slides[currentSlide]
+    .classList.add('active');
+
+}
+
+setInterval(changeSlide, 5000);
+
+</script>
+
+</body>
+</html>
