@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monitoramento | Serra Azul</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    
+ <!-- FAVICON -->
+<link rel="icon" type="image/png" href="img/favicon serrazul II.png">
+<link rel="shortcut icon" href="img/favicon serrazul II.png">
+<link rel="apple-touch-icon" href="img/favicon serrazul II.png">
+
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Montserrat',sans-serif;
+            background:#f5f7fa;
+            color:#333;
+            line-height:1.6;
+        }
+
+        .container{
+            width:100%;
+            max-width:1200px;
+            margin:auto;
+            padding:0 20px;
+        }
+
+        /* =========================
+   NAVBAR MODERNA
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:#07182d;
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+
+.navbar-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:88px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo a{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:125px;
+    width:auto;
+    object-fit:contain;
+    mix-blend-mode:lighten;
+    transition:.35s ease;
+}
+
+.logo img:hover{
+    transform:scale(1.02);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    position:relative;
+    transition:.3s ease;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:linear-gradient(90deg,#d4af37,#f5d77a);
+    transition:.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#f5d87c;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:32px;
+    cursor:pointer;
+}
+       /* =========================================================
+   HERO PREMIUM PADRÃO SERRAZUL
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    /* AJUSTE ABAIXO DA NAVBAR */
+    padding-top:110px;
+
+    height:65vh;
+
+    min-height:500px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:#fff;
+
+    overflow:hidden;
+
+}
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.hero-slider{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+}
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    opacity:0;
+
+    transform:scale(1.08);
+
+    transition:
+    opacity 1.5s ease-in-out,
+    transform 8s ease;
+
+}
+
+/* =========================================================
+   IMAGENS
+========================================================= */
+
+.slide-1{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.40),
+        rgba(0,0,0,0.55)
+    ),
+    url('img/imagem1.webp') center/cover;
+
+}
+
+.slide-2{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.40),
+        rgba(0,0,0,0.55)
+    ),
+    url('img/imagem2.webp') center/cover;
+
+}
+
+.slide-3{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.40),
+        rgba(0,0,0,0.55)
+    ),
+    url('img/imagem3.webp') center/cover;
+
+}
+
+.slide-4{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.40),
+        rgba(0,0,0,0.55)
+    ),
+    url('img/imagem4.webp') center/cover;
+
+}
+
+.hero-slide.active{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.10);
+
+    z-index:2;
+
+}
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:3;
+
+    max-width:850px;
+
+    padding:10px 20px 0;
+
+    animation:fadeUp 1s ease;
+
+}
+
+/* ANIMAÇÃO */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.hero-badge{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    background:
+    rgba(212,175,55,0.15);
+
+    border:
+    1px solid rgba(212,175,55,0.45);
+
+    color:#f5d77a;
+
+    margin-bottom:22px;
+
+    letter-spacing:2px;
+
+    font-size:0.82rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    backdrop-filter:blur(8px);
+
+}
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.hero h1{
+
+    font-size:clamp(2.8rem,6vw,4.8rem);
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    margin-bottom:24px;
+
+    text-shadow:
+    0 6px 25px rgba(0,0,0,0.28);
+
+}
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.hero p{
+
+    font-size:1.12rem;
+
+    line-height:1.9;
+
+    color:rgba(255,255,255,0.92);
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+        /* SECTIONS */
+        .section-padding{
+            padding:90px 0;
+        }
+
+        .section-title{
+            text-align:center;
+            font-size:2.8rem;
+            color:#002b55;
+            margin-bottom:20px;
+            font-weight:800;
+        }
+
+        .section-subtitle{
+            text-align:center;
+            max-width:750px;
+            margin:0 auto 60px;
+            color:#666;
+            font-size:1.05rem;
+        }
+
+        /* CARDS */
+        .team-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:35px;
+        }
+
+        .team-card{
+            background:#fff;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+            transition:0.4s;
+        }
+
+        .team-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .team-image{
+            width:100%;
+            height:360px;
+            object-fit:cover;
+            object-position:center top;
+        }
+
+        .team-content{
+            padding:30px;
+            text-align:center;
+        }
+
+        .team-content h3{
+            font-size:1.6rem;
+            color:#002b55;
+            margin-bottom:10px;
+        }
+
+        .team-role{
+            color:#d4af37;
+            font-weight:700;
+            margin-bottom:18px;
+            display:block;
+        }
+
+        .team-content p{
+            color:#555;
+            line-height:1.8;
+            font-size:0.95rem;
+        }
+
+        /* CTA */
+        .cta-section{
+            background:#001f3f;
+            color:#fff;
+            text-align:center;
+        }
+
+        .title-gold{
+            color:#f5d77a;
+            font-size:2.5rem;
+            margin-bottom:20px;
+        }
+
+        .btn-primary{
+            display:inline-block;
+            margin-top:30px;
+            padding:15px 35px;
+            border-radius:50px;
+            text-decoration:none;
+            background:linear-gradient(135deg,#d4af37,#f1d67a);
+            color:#001f3f;
+            font-weight:700;
+            transition:0.3s;
+        }
+
+        .btn-primary:hover{
+            transform:translateY(-3px);
+        }
+
+        /* FOOTER */
+        .main-footer{
+            background:#00152b;
+            color:#fff;
+            padding:40px 0;
+            text-align:center;
+        }
+
+        .main-footer p{
+            margin:8px 0;
+            color:rgba(255,255,255,0.75);
+        }
+
+        /* RESPONSIVO */
+        @media(max-width:768px){
+
+            .hero{
+                height:auto;
+                padding:150px 0 100px;
+            }
+
+            .hero h1{
+                font-size:2.7rem;
+            }
+
+            .hero p{
+                font-size:1rem;
+            }
+
+            .section-title{
+                font-size:2.1rem;
+            }
+
+            .nav-links{
+                gap:15px;
+                font-size:0.9rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="container navbar-container">
+
+        <div class="logo">
+            <img src="img/logo serrazul.webp" alt="Logo Serra Azul">
+        </div>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="colaboradores.html" class="active">Colaboradores</a></li>
+
+             
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-slider">
+
+        <div class="hero-slide slide-1 active"></div>
+
+        <div class="hero-slide slide-2"></div>
+
+        <div class="hero-slide slide-3"></div>
+
+        <div class="hero-slide slide-4"></div>
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-badge">
+            SerrAzul II
+        </p>
+
+        <h1>
+            Monitoramento e Controle de Acesso
+        </h1>
+
+        <p>
+            Equipe responsável pelo acompanhamento operacional, monitoramento das áreas comuns e controle de acesso da comunidade Serra Azul.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- EQUIPE -->
+<section class="section-padding">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Nossa Equipe
+        </h2>
+
+        <p class="section-subtitle">
+
+            Profissionais preparados para atuar com atenção, organização e segurança em todos os acessos e monitoramentos da fazenda.
+
+        </p>
+
+        <div class="team-grid">
+
+            <!-- JESSICA -->
+            <div class="team-card">
+
+                <img src="img/jessica2.webp" alt="Jéssica" class="team-image">
+
+                <div class="team-content">
+
+                    <h3>Jéssica</h3>
+
+                    <span class="team-role">
+                        Controladora de Acesso
+                    </span>
+
+                    <p>
+                        Responsável pelo controle de entrada e saída, atendimento aos associados e suporte operacional diário.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- MARIANA -->
+            <div class="team-card">
+
+                <img src="img/mariana.webp" alt="Mariana" class="team-image">
+
+                <div class="team-content">
+
+                    <h3>Mariana</h3>
+
+                    <span class="team-role">
+                        Monitoramento
+                    </span>
+
+                    <p>
+                        Atua no acompanhamento das câmeras, observação preventiva e apoio ao controle operacional da segurança.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- VALDIRENE -->
+            <div class="team-card">
+
+                <img src="img/valdirene.webp" alt="Valdirene" class="team-image">
+
+                <div class="team-content">
+
+                    <h3>Valdirene</h3>
+
+                    <span class="team-role">
+                        Monitoramento
+                    </span>
+
+                    <p>
+                        Responsável pelo monitoramento das áreas estratégicas e suporte às atividades de vigilância preventiva.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- VALDEMIR -->
+            <div class="team-card">
+
+                <img src="img/valdemir.webp" alt="Valdemir" class="team-image">
+
+                <div class="team-content">
+
+                    <h3>Valdemir</h3>
+
+                    <span class="team-role">
+                        Vigilante
+                    </span>
+
+                    <p>
+                        Atua na proteção patrimonial, rondas preventivas e apoio à segurança da comunidade Serra Azul.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ELDSON -->
+            <div class="team-card">
+
+                <img src="img/eldson.webp" alt="Eldson" class="team-image">
+
+                <div class="team-content">
+
+                    <h3>Eldson</h3>
+
+                    <span class="team-role">
+                        Controlador de Acesso
+                    </span>
+
+                    <p>
+                        Responsável pelo atendimento nos acessos, identificação de visitantes e suporte ao fluxo operacional.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- JOSE WEMERSON -->
+            <div class="team-card">
+
+                <img src="img/josé wemerson.webp" alt="José Wemerson" class="team-image">
+
+                <div class="team-content">
+
+                    <h3>José Wemerson</h3>
+
+                    <span class="team-role">
+                        Controlador de Acesso
+                    </span>
+
+                    <p>
+                        Atua no controle de acesso de moradores, visitantes e prestadores de serviço com foco em organização e segurança.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="section-padding cta-section">
+
+    <div class="container">
+
+        <h2 class="title-gold">
+            Controle e segurança em todos os acessos
+        </h2>
+
+        <p style="max-width:750px; margin:auto; line-height:1.9;">
+
+            Nossa equipe atua diariamente para garantir organização, monitoramento eficiente e tranquilidade aos associados.
+
+        </p>
+
+        <a href="newsletter.html" class="btn-primary">
+            Receber Informativos
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 SerrAzul II • Todos os direitos reservados
+        </p>
+
+        <p>
+            Transparência • Comunidade • Evolução
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- SCRIPT DO CARROSSEL -->
+<script>
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    let currentSlide = 0;
+
+    function changeSlide(){
+
+        slides[currentSlide].classList.remove('active');
+
+        currentSlide++;
+
+        if(currentSlide >= slides.length){
+            currentSlide = 0;
+        }
+
+        slides[currentSlide].classList.add('active');
+
+    }
+
+    setInterval(changeSlide, 5000);
+
+</script>
+
+</body>
+
+</html>
