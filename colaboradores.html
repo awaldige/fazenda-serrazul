@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaboradores - Serra Azul</title>
+
+    
+ <!-- FAVICON -->
+<link rel="icon" type="image/png" href="img/favicon serrazul II.png">
+<link rel="shortcut icon" href="img/favicon serrazul II.png">
+<link rel="apple-touch-icon" href="img/favicon serrazul II.png">
+
+   <style>
+
+/* =========================================================
+   RESET & ROOT
+========================================================= */
+
+:root {
+
+    --gold: #b59410;
+    --gold-light: #d8bb3a;
+    --gold-soft: rgba(181,148,16,0.10);
+
+    --navy: #1a2a3a;
+    --navy-dark: #101923;
+
+    --white: #ffffff;
+    --light: #f5f7fa;
+
+    --text: #2e3440;
+    --text-light: #6d7785;
+
+    --shadow: 0 14px 40px rgba(0,0,0,0.08);
+    --shadow-hover: 0 20px 50px rgba(0,0,0,0.14);
+
+    --transition: all 0.35s ease;
+
+}
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+
+}
+
+.container {
+
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+}
+
+/* =========================
+   NAVBAR MODERNA
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:#07182d;
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+
+.navbar-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:88px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo a{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:125px;
+    width:auto;
+    object-fit:contain;
+    mix-blend-mode:lighten;
+    transition:.35s ease;
+}
+
+.logo img:hover{
+    transform:scale(1.02);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    position:relative;
+    transition:.3s ease;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:linear-gradient(90deg,#d4af37,#f5d77a);
+    transition:.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#f5d87c;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:32px;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   HERO PREMIUM — PADRÃO SERRAZUL
+========================================================= */
+/* =========================================================
+   HERO PREMIUM
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    height: 100vh;
+
+    min-height: 680px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    color: white;
+
+}
+.hero-intro {
+
+    display: inline-block;
+
+    padding: 12px 28px;
+
+    margin-bottom: 24px;
+
+    border-radius: 50px;
+
+    background: rgba(181,148,16,0.18);
+
+    border: 1px solid rgba(216,187,58,0.45);
+
+    color: #fff3c2;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 8px 20px rgba(181,148,16,0.25);
+
+}
+
+/* SLIDES */
+
+.hero-slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+}
+
+.slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+
+    animation: heroSlider 24s infinite;
+
+    transform: scale(1.05);
+
+}
+
+/* SLIDES */
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: heroSlider 24s infinite;
+    transform: scale(1.05);
+}
+
+/* SUAS IMAGENS */
+
+.hero-slide:nth-child(1) {
+    background-image: url('img/imagem1.webp');
+    animation-delay: 0s;
+}
+
+.hero-slide:nth-child(2) {
+    background-image: url('img/imagem2.webp');
+    animation-delay: 6s;
+}
+
+.hero-slide:nth-child(3) {
+    background-image: url('img/imagem3.webp');
+    animation-delay: 12s;
+}
+
+.hero-slide:nth-child(4) {
+    background-image: url('img/imagem4.webp');
+    animation-delay: 18s;
+}
+
+@keyframes heroSlider {
+
+    0% {
+
+        opacity: 0;
+        transform: scale(1.08);
+
+    }
+
+    8% {
+
+        opacity: 1;
+
+    }
+
+    25% {
+
+        opacity: 1;
+        transform: scale(1);
+
+    }
+
+    33% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+/* OVERLAY */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.30),
+            rgba(0,0,0,0.45)
+        );
+
+    z-index: 2;
+
+}
+
+/* BRILHO */
+
+.hero::before {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.16),
+            transparent 60%
+        );
+
+    z-index: 2;
+
+}
+
+/* CONTEÚDO */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 900px;
+
+    padding: 20px;
+
+    animation: fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: rgba(181,148,16,0.16);
+
+    color: #fff3c2;
+
+    padding: 10px 24px;
+
+    border-radius: 50px;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 24px;
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(8px);
+
+}
+
+.hero h1 {
+
+    font-size: clamp(3rem, 7vw, 5.4rem);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+    font-weight: 800;
+
+    text-shadow: 0 6px 25px rgba(0,0,0,0.30);
+
+}
+
+.hero p {
+
+    font-size: 1.15rem;
+
+    color: rgba(255,255,255,0.92);
+
+    max-width: 720px;
+
+    margin: auto;
+
+}
+
+/* =========================================================
+   SEÇÃO
+========================================================= */
+
+.section-padding {
+
+    padding: 110px 0;
+
+}
+
+.white-bg {
+
+    background: white;
+
+}
+
+/* =========================================================
+   TITULOS
+========================================================= */
+
+.section-title {
+
+    color: var(--navy);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+}
+
+.section-subtitle {
+
+    color: var(--text-light);
+
+    font-size: 1.05rem;
+
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.vision-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px,1fr));
+
+    gap: 32px;
+
+    margin-top: 50px;
+
+}
+
+.vision-card {
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 42px;
+
+    box-shadow: var(--shadow);
+
+    border-bottom: 5px solid var(--gold);
+
+    transition: var(--transition);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.vision-card::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+}
+
+.vision-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: var(--shadow-hover);
+
+}
+
+.vision-card h3 {
+
+    color: var(--navy);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 18px;
+
+}
+
+.vision-card p {
+
+    color: var(--text-light);
+
+    margin-bottom: 25px;
+
+}
+
+/* BOTÃO SAIBA MAIS */
+
+.card-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 26px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: var(--transition);
+
+    box-shadow:
+        0 10px 24px rgba(181,148,16,0.28);
+
+}
+
+.card-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(181,148,16,0.38);
+
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer {
+
+    background: #0b1118;
+
+    color: #8b98a7;
+
+    padding: 45px 0;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        min-height: auto;
+
+        padding: 160px 20px 120px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 2.6rem;
+
+    }
+
+    .nav-links {
+
+        gap: 18px;
+
+    }
+
+    .vision-card {
+
+        padding: 30px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container navbar-container">
+
+        <div class="logo">
+            <img src="img/logo serrazul.webp" alt="Logo Serra Azul">
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+
+                <li><a href="index.html">Home</a></li>
+                <li><a href="colaboradores.html" class="active">Colaboradores</a></li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero team-hero">
+
+    <div class="hero-slider">
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-intro">SerrAzul II Equipe</p>
+
+        <h1>Colaboradores</h1>
+
+        <p class="hero-description">
+            Pessoas comprometidas com a evolução do Serra Azul.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="section-padding white-bg">
+
+    <div class="container">
+
+        <div class="vision-grid">
+
+            <div class="vision-card">
+                <h3>👨‍💼 Administração</h3>
+                <p>Organização e gestão administrativa.</p>
+                <a href="administracao.html" class="btn-saiba-mais">Saiba Mais</a>
+            </div>
+
+            <div class="vision-card">
+                <h3>🛡️ Segurança</h3>
+                <p>Equipe focada na proteção dos moradores.</p>
+                <a href="seguranca.html" class="btn-saiba-mais">Saiba Mais</a>
+            </div>
+
+            <div class="vision-card">
+                <h3>🎥 Monitoramento</h3>
+                <p>Equipe de Monitoramento e Controle de Acesso.</p>
+                <a href="monitoramento.html" class="btn-saiba-mais">Saiba Mais</a>
+            </div>
+
+            <div class="vision-card">
+                <h3>🧹 Facilities</h3>
+                <p>Apoio operacional e manutenção geral.</p>
+                <a href="facilities.html" class="btn-saiba-mais">Saiba Mais</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="main-footer">
+
+    <div class="container footer-bottom">
+
+        <p>© 2026 Fazenda SerrAzul II</p>
+
+        <p>Desenvolvido por AW Tecnology</p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
