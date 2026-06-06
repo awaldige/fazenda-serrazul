@@ -284,7 +284,7 @@
 }
 
 /* =========================
-   MENU MOBILE
+   MENU HAMBÚRGUER
 ========================= */
 
 .menu-toggle{
@@ -292,22 +292,22 @@
     background:none;
     border:none;
     cursor:pointer;
+    padding:10px;
+    z-index:1001;
 }
 
 .menu-toggle span{
     display:block;
-    width:28px;
-    height:3px;
-    margin:6px 0;
-    border-radius:30px;
+    width:36px;
+    height:4px;
+    margin:7px 0;
+    border-radius:50px;
     background:#fff;
-    transition:.3s;
+    transition:.35s ease;
 }
 
-/* ANIMAÇÃO X */
-
 .menu-toggle.open span:nth-child(1){
-    transform:translateY(9px) rotate(45deg);
+    transform:translateY(11px) rotate(45deg);
 }
 
 .menu-toggle.open span:nth-child(2){
@@ -315,7 +315,7 @@
 }
 
 .menu-toggle.open span:nth-child(3){
-    transform:translateY(-9px) rotate(-45deg);
+    transform:translateY(-11px) rotate(-45deg);
 }
 
 
@@ -360,24 +360,96 @@
     padding:140px 20px 80px;
 }
 
+
+/* INTRO */
+
+.hero-intro{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(181,148,16,.20),
+        rgba(216,187,58,.10)
+    );
+
+    border:
+    1px solid rgba(216,187,58,.40);
+
+    color:#f7e29a;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 8px 24px rgba(181,148,16,.18);
+}
+
+
+/* TÍTULO */
+
 .hero h1{
+
     font-size:4.8rem;
+
     line-height:1.1;
+
     max-width:950px;
+
     margin-bottom:28px;
+
     font-weight:800;
 
     text-shadow:
     0 8px 30px rgba(0,0,0,.35);
 }
 
+.hero h1 span{
+
+    background:
+    linear-gradient(
+        90deg,
+        #d4af37,
+        #f5d77a
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+
+/* DESCRIÇÃO */
+
 .hero-description{
+
     max-width:760px;
+
     font-size:1.15rem;
+
     line-height:1.9;
+
     color:rgba(255,255,255,.92);
+
     margin-bottom:40px;
 }
+
+
+/* BOTÕES */
 
 .hero-buttons{
     display:flex;
@@ -391,23 +463,30 @@
    TABLET
 ========================= */
 
-@media (max-width:900px){
+@media(max-width:900px){
 
     .menu-toggle{
         display:block;
     }
 
     #nav-menu{
+
         position:absolute;
+
         top:100%;
+
         left:0;
+
         width:100%;
 
-        background:#0c1b33;
+        background:#07182d;
 
         display:none;
 
         padding:30px;
+
+        box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
     }
 
     #nav-menu.active{
@@ -416,18 +495,21 @@
 
     .nav-links{
         flex-direction:column;
-        align-items:flex-start;
-        gap:22px;
+        align-items:center;
+        gap:24px;
+    }
+
+    .nav-links a{
+        font-size:18px;
     }
 
     .logo img{
-        height:105px;
+        height:110px;
     }
 
     .hero h1{
         font-size:3.2rem;
     }
-
 }
 
 
@@ -435,23 +517,19 @@
    CELULAR
 ========================= */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
     .navbar-container{
         min-height:90px;
     }
 
     .logo img{
-        height:90px;
-    }
-
-    .hero{
-        min-height:auto;
+        height:95px;
     }
 
     .hero-content{
         min-height:auto;
-        padding:180px 20px 100px;
+        padding:170px 20px 100px;
     }
 
     .hero-intro{
@@ -497,14 +575,14 @@
    CELULARES PEQUENOS
 ========================= */
 
-@media (max-width:480px){
+@media(max-width:480px){
 
     .logo img{
-        height:80px;
+        height:85px;
     }
 
     .hero-content{
-        padding:160px 15px 80px;
+        padding:155px 15px 80px;
     }
 
     .hero h1{
@@ -525,119 +603,6 @@
     .action-box{
         padding:25px;
     }
-
-}
-.hero-intro{
-
-```
-display:inline-block;
-
-padding:12px 28px;
-
-border-radius:999px;
-
-background:
-linear-gradient(
-    135deg,
-    rgba(181,148,16,.20),
-    rgba(216,187,58,.10)
-);
-
-border:
-1px solid rgba(216,187,58,.40);
-
-color:#f7e29a;
-
-font-size:.85rem;
-
-font-weight:700;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-margin-bottom:30px;
-
-backdrop-filter:blur(10px);
-
-box-shadow:
-0 8px 24px rgba(181,148,16,.18);
-```
-
-}
-
-.hero h1{
-
-```
-font-size:4.8rem;
-
-line-height:1.1;
-
-max-width:950px;
-
-margin-bottom:28px;
-
-font-weight:800;
-
-text-shadow:
-0 8px 30px rgba(0,0,0,.35);
-```
-
-}
-
-.hero h1 span{
-
-```
-background:
-linear-gradient(
-    90deg,
-    #d4af37,
-    #f5d77a
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-```
-
-}
-
-.hero-description{
-
-```
-max-width:760px;
-
-font-size:1.15rem;
-
-line-height:1.9;
-
-color:rgba(255,255,255,.92);
-
-margin-bottom:40px;
-```
-
-}
-
-.hero-buttons{
-display:flex;
-gap:18px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:768px){
-
-```
-.hero h1{
-    font-size:2.8rem;
-}
-
-.hero-description{
-    font-size:1rem;
-}
-```
 
 }
 
@@ -1023,15 +988,17 @@ justify-content:center;
 
             </div>
 
-            <!-- MENU MOBILE -->
-            <button
-                class="menu-toggle"
-                id="menu-toggle"
-                aria-label="Abrir menu">
+         <!-- MENU MOBILE -->
+<button
+    class="menu-toggle"
+    id="menu-toggle"
+    aria-label="Abrir menu">
 
-                ☰
+    <span></span>
+    <span></span>
+    <span></span>
 
-            </button>
+</button>
 
             <!-- MENU -->
             <nav id="nav-menu">
@@ -1592,18 +1559,18 @@ justify-content:center;
     <!-- SCRIPT -->
     <script>
 
-        /* MENU MOBILE */
-        const menuToggle =
-            document.getElementById('menu-toggle');
+       /* MENU MOBILE */
 
-        const navMenu =
-            document.getElementById('nav-menu');
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-        menuToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', () => {
 
-            navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('open');
 
-        });
+    navMenu.classList.toggle('active');
+
+});
 
         /* HERO SLIDER */
         const slides =
