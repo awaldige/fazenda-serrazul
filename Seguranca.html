@@ -2,858 +2,577 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Segurança | Serra Azul</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-
- <!-- FAVICON -->
-<link rel="icon" type="image/png" href="img/favicon serrazul II.png">
-<link rel="shortcut icon" href="img/favicon serrazul II.png">
-<link rel="apple-touch-icon" href="img/favicon serrazul II.png">
-
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="img/favicon serrazul II.png">
+    <link rel="shortcut icon" href="img/favicon serrazul II.png">
+    <link rel="apple-touch-icon" href="img/favicon serrazul II.png">
 
     <style>
-        :root{
-
-    --gold:#b59410;
-    --gold-light:#d8bb3a;
-
-    --white:#ffffff;
-
-    --navy:#0c1b33;
-    --navy-dark:#081221;
-
-    --text:#333333;
-    --text-light:#6d7785;
-
-    --shadow:0 14px 40px rgba(0,0,0,.08);
-    --shadow-hover:0 20px 50px rgba(0,0,0,.14);
-
-}
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        :root {
+            --gold: #b59410;
+            --gold-light: #d8bb3a;
+            --white: #ffffff;
+            --navy: #0c1b33;
+            --navy-dark: #081221;
+            --text: #333333;
+            --text-light: #6d7785;
+            --shadow: 0 14px 40px rgba(0, 0, 0, .08);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, .14);
         }
 
-        body{
-            font-family:'Montserrat',sans-serif;
-            background:#f5f7fa;
-            color:#333;
-            line-height:1.6;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container{
-            width:100%;
-            max-width:1200px;
-            margin:auto;
-            padding:0 20px;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
         }
-/* =========================
-   NAVBAR MODERNA
-========================= */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:999;
-    background:#07182d;
-    backdrop-filter:blur(12px);
-    box-shadow:0 4px 20px rgba(0,0,0,.18);
-}
-
-.navbar-container{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    min-height:88px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-}
-
-.logo a{
-    display:flex;
-    align-items:center;
-}
-
-.logo img{
-    height:125px;
-    width:auto;
-    object-fit:contain;
-    mix-blend-mode:lighten;
-    transition:.35s ease;
-}
 
-.logo img:hover{
-    transform:scale(1.02);
-}
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* =========================
+           NAVBAR MODERNA
+        ========================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: #07182d;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .18);
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 88px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 125px;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: lighten;
+            transition: .35s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.02);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            transition: .3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f5d77a);
+            transition: .3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #f5d87c;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO PREMIUM SERRAZUL
+        ========================================================= */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            color: var(--white);
+            padding: 140px 20px 80px;
+        }
+
+        /* SLIDER */
+        .hero-slider {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.08);
+            transition: opacity 1.5s ease-in-out, transform 8s ease;
+        }
+
+        /* IMAGENS */
+        .slide-1 {
+            background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .65)), url('img/imagem1.webp') center/cover;
+        }
+
+        .slide-2 {
+            background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .65)), url('img/imagem2.webp') center/cover;
+        }
+
+        .slide-3 {
+            background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .65)), url('img/imagem3.webp') center/cover;
+        }
+
+        .slide-4 {
+            background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .65)), url('img/imagem4.webp') center/cover;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* OVERLAY */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .45));
+            z-index: 2;
+        }
+
+        /* BRILHO PREMIUM */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(255, 255, 255, .12), transparent 60%);
+            z-index: 2;
+        }
+
+        /* CONTEÚDO */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 20px;
+            animation: fadeUp .9s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HERO BADGE */
+        .hero-badge,
+        .hero-intro {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: rgba(212, 175, 55, .18);
+            border: 1px solid rgba(245, 215, 122, .45);
+            color: #f5d77a;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, .12);
+            margin-bottom: 20px;
+        }
+
+        /* TÍTULO */
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.2rem);
+            line-height: 1.05;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 0 6px 25px rgba(0, 0, 0, .30);
+        }
+
+        /* DESCRIÇÃO */
+        .hero-description {
+            max-width: 720px;
+            margin: auto;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, .92);
+        }
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:32px;
-    list-style:none;
-}
-
-.nav-links a{
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    font-size:15px;
-    position:relative;
-    transition:.3s ease;
-}
-
-.nav-links a::after{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:-7px;
-    width:0;
-    height:2px;
-    background:linear-gradient(90deg,#d4af37,#f5d77a);
-    transition:.3s;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after{
-    width:100%;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-    color:#f5d87c;
-}
-
-.menu-toggle{
-    display:none;
-    background:none;
-    border:none;
-    color:#fff;
-    font-size:32px;
-    cursor:pointer;
-}
-
-      /* =========================================================
-   HERO PREMIUM SERRAZUL
-========================================================= */
-
-.hero{
-
-    position:relative;
-
-    height:100vh;
-
-    min-height:680px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    color:var(--white);
-
-    padding:140px 20px 80px;
-
-}
-
-/* SLIDER */
-
-.hero-slider{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:1;
-
-}
-
-.hero-slide{
-
-    position:absolute;
-
-    inset:0;
-
-    background-size:cover;
-
-    background-position:center;
-
-    opacity:0;
-
-    transform:scale(1.08);
-
-    transition:
-    opacity 1.5s ease-in-out,
-    transform 8s ease;
-
-}
-
-/* IMAGENS */
-
-.slide-1{
-    background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
-    url('img/imagem1.webp') center/cover;
-}
-
-.slide-2{
-    background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
-    url('img/imagem2.webp') center/cover;
-}
-
-.slide-3{
-    background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
-    url('img/imagem3.webp') center/cover;
-}
-
-.slide-4{
-    background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
-    url('img/imagem4.webp') center/cover;
-}
-
-.hero-slide.active{
-
-    opacity:1;
-
-    transform:scale(1);
-
-}
-
-/* OVERLAY */
-
-.hero-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.25),
-        rgba(0,0,0,.45)
-    );
-
-    z-index:2;
-
-}
-
-/* BRILHO PREMIUM */
-
-.hero::before{
-
-    content:'';
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    radial-gradient(
-        circle at top,
-        rgba(255,255,255,.12),
-        transparent 60%
-    );
-
-    z-index:2;
-
-}
-
-/* CONTEÚDO */
-
-.hero-content{
-
-    position:relative;
-
-    z-index:3;
-
-    max-width:900px;
-
-    padding:20px;
-
-    animation:fadeUp .9s ease;
-
-}
-
-@keyframes fadeUp{
-
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-/* RETÂNGULO DOURADO */
-/* HERO BADGE */
-
-.hero-badge,
-.hero-intro{
-
-    display:inline-block;
-
-    padding:12px 30px;
-
-    border-radius:50px;
-
-    background:
-    rgba(212,175,55,.18);
-
-    border:
-    1px solid rgba(245,215,122,.45);
-
-    color:#f5d77a;
-
-    box-shadow:
-    0 8px 24px rgba(212,175,55,.12);
-
-}
-/* TÍTULO */
-
-.hero h1{
-
-    font-size:
-    clamp(3rem,7vw,5.2rem);
-
-    line-height:1.05;
-
-    font-weight:800;
-
-    margin-bottom:25px;
-
-    text-shadow:
-    0 6px 25px rgba(0,0,0,.30);
-
-}
-
-/* DESCRIÇÃO */
-
-.hero-description{
-
-    max-width:720px;
-
-    margin:auto;
-
-    font-size:1.15rem;
-
-    line-height:1.9;
-
-    color:
-    rgba(255,255,255,.92);
-
-}
         /* SECTIONS */
-        .section-padding{
-            padding:90px 0;
+        .section-padding {
+            padding: 90px 0;
         }
 
-        .section-title{
-            text-align:center;
-            font-size:2.8rem;
-            color:#002b55;
-            margin-bottom:20px;
-            font-weight:800;
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #002b55;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
-        .section-subtitle{
-            text-align:center;
-            max-width:750px;
-            margin:0 auto 60px;
-            color:#666;
-            font-size:1.05rem;
+        .section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px;
+            color: #666;
+            font-size: 1.05rem;
         }
 
         /* CARDS */
-        .team-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-            gap:35px;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
         }
 
-        .team-card{
-            background:#fff;
-            border-radius:25px;
-            overflow:hidden;
-            box-shadow:0 10px 30px rgba(0,0,0,0.08);
-            transition:0.4s;
+        .team-card {
+            background: #fff;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .team-card:hover{
-            transform:translateY(-10px);
+        .team-card:hover {
+            transform: translateY(-10px);
         }
 
-        .team-image{
-            width:100%;
-            height:360px;
-            object-fit:cover;
-            object-position:center top;
+        .team-image {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            object-position: center top;
         }
 
-        .team-content{
-            padding:30px;
-            text-align:center;
-            display:flex;
-            flex-direction:column;
-            height:100%;
+        .team-content {
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        .team-content h3{
-            font-size:1.6rem;
-            color:#002b55;
-            margin-bottom:10px;
+        .team-content h3 {
+            font-size: 1.6rem;
+            color: #002b55;
+            margin-bottom: 10px;
         }
 
-        .team-role{
-            color:#d4af37;
-            font-weight:700;
-            margin-bottom:18px;
-            display:block;
+        .team-role {
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: block;
         }
 
-        .team-content p{
-            color:#555;
-            line-height:1.8;
-            margin-top:10px;
-            font-size:0.95rem;
+        .team-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-top: 10px;
+            font-size: 0.95rem;
         }
 
         /* CTA */
-        .cta-section{
-            background:#001f3f;
-            color:#fff;
-            text-align:center;
+        .cta-section {
+            background: #001f3f;
+            color: #fff;
+            text-align: center;
         }
 
-        .title-gold{
-            color:#f5d77a;
-            font-size:2.5rem;
-            margin-bottom:20px;
+        .title-gold {
+            color: #f5d77a;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        .btn-primary{
-            display:inline-block;
-            margin-top:30px;
-            padding:15px 35px;
-            border-radius:50px;
-            text-decoration:none;
-            background:linear-gradient(135deg,#d4af37,#f1d67a);
-            color:#001f3f;
-            font-weight:700;
-            transition:0.3s;
+        .btn-primary {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            background: linear-gradient(135deg, #d4af37, #f1d67a);
+            color: #001f3f;
+            font-weight: 700;
+            transition: 0.3s;
         }
 
-        .btn-primary:hover{
-            transform:translateY(-3px);
+        .btn-primary:hover {
+            transform: translateY(-3px);
         }
 
         /* FOOTER */
-        .main-footer{
-            background:#00152b;
-            color:#fff;
-            padding:40px 0;
-            text-align:center;
+        .main-footer {
+            background: #00152b;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
         }
 
-        .main-footer p{
-            margin:8px 0;
-            color:rgba(255,255,255,0.75);
+        .main-footer p {
+            margin: 8px 0;
+            color: rgba(255, 255, 255, 0.75);
         }
 
         /* RESPONSIVO */
-        @media(max-width:768px){
-
-            .hero{
-                height:auto;
-                padding:150px 0 100px;
+        @media(max-width:768px) {
+            .hero {
+                height: auto;
+                padding: 150px 0 100px;
             }
-
-            .hero h1{
-                font-size:2.7rem;
+            .hero h1 {
+                font-size: 2.7rem;
             }
-
-            .hero p{
-                font-size:1rem;
+            .hero p {
+                font-size: 1rem;
             }
-
-            .section-title{
-                font-size:2.1rem;
+            .section-title {
+                font-size: 2.1rem;
             }
-
         }
-
     </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-
-    <div class="container navbar-container">
-
-        <div class="logo">
-            <img src="img/logo serrazul.webp" alt="Logo Serra Azul">
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <img src="img/logo serrazul.webp" alt="Logo Serra Azul">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="colaboradores.html" class="active">Colaboradores</a></li>
+                </ul>
+            </nav>
         </div>
-
-        <nav>
-
-            <ul class="nav-links">
-
-                <li><a href="index.html">Home</a></li>
-
-                <li><a href="colaboradores.html" class="active">Colaboradores</a></li>
-
-               
-            </ul>
-
-        </nav>
-
-    </div>
-
-</header>
-
-<!-- HERO -->
-<section class="hero">
-
-    <div class="hero-slider">
-
-        <div class="hero-slide slide-1 active"></div>
-
-        <div class="hero-slide slide-2"></div>
-
-        <div class="hero-slide slide-3"></div>
-
-        <div class="hero-slide slide-4"></div>
-
-    </div>
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-
-        <p class="hero-badge">
-            SerrAzul II
-        </p>
-
-        <h1>
-            Equipe de Segurança
-        </h1>
-
-        <p>
-            Profissionais dedicados à proteção, monitoramento e tranquilidade da comunidade Serra Azul.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- EQUIPE -->
-<section class="section-padding">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            Nossa Equipe
-        </h2>
-
-        <p class="section-subtitle">
-
-            Vigilância, atenção e comprometimento em todos os momentos para garantir mais segurança aos associados.
-
-        </p>
-
-        <div class="team-grid">
-
-            <!-- EZEQUIEL -->
-            <div class="team-card">
-
-                <img src="img/ezequiel.webp" alt="Ezequiel" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Ezequiel</h3>
-
-                    <span class="team-role">
-                        Vigilante
-                    </span>
-
-                    <p>
-                        Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- MÁRCIO -->
-            <div class="team-card">
-
-                <img src="img/marcio.webp" alt="Márcio" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Márcio</h3>
-
-                    <span class="team-role">
-                        Vigilante (Líder)
-                    </span>
-
-                    <p>
-                        Responsável pela coordenação da equipe de vigilância, organização operacional e acompanhamento das rotinas de segurança.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- JOSE -->
-            <div class="team-card">
-
-                <img src="img/jose silva.webp" alt="José Silva" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>José Silva</h3>
-
-                    <span class="team-role">
-                        Vigilante
-                    </span>
-
-                    <p>
-                        Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- CARLOS -->
-            <div class="team-card">
-
-                <img src="img/carlos.webp" alt="Carlos" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Carlos</h3>
-
-                    <span class="team-role">
-                        Vigilante
-                    </span>
-
-                    <p>
-                        Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- SYDNEI -->
-            <div class="team-card">
-
-                <img src="img/sydnei.webp" alt="Sydnei" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Sydnei</h3>
-
-                    <span class="team-role">
-                        Vigilante
-                    </span>
-
-                    <p>
-                        Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- NATANAEL -->
-            <div class="team-card">
-
-                <img src="img/natanael.webp" alt="Natanael" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Natanael</h3>
-
-                    <span class="team-role">
-                        Vigilante (Líder)
-                    </span>
-
-                    <p>
-                        Responsável pela coordenação da equipe de vigilância, organização operacional e acompanhamento das rotinas de segurança.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- JAISON -->
-            <div class="team-card">
-
-                <img src="img/jaison.webp" alt="Jaison" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Jaison</h3>
-
-                    <span class="team-role">
-                        Vigilante (Líder)
-                    </span>
-
-                    <p>
-                        Responsável pela coordenação da equipe de vigilância, organização operacional e acompanhamento das rotinas de segurança.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- JEOVAN -->
-            <div class="team-card">
-
-                <img src="img/jeovan.webp" alt="Jeovan" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Jeovan</h3>
-
-                    <span class="team-role">
-                        Vigilante
-                    </span>
-
-                    <p>
-                        Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- IRAQUITAN -->
-            <div class="team-card">
-
-                <img src="img/iraquitan.webp" alt="Iraquitan" class="team-image">
-
-                <div class="team-content">
-
-                    <h3>Iraquitan</h3>
-
-                    <span class="team-role">
-                        Vigilante
-                    </span>
-
-                    <p>
-                        Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.
-                    </p>
-
-                </div>
-
-            </div>
-
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide slide-1 active"></div>
+            <div class="hero-slide slide-2"></div>
+            <div class="hero-slide slide-3"></div>
+            <div class="hero-slide slide-4"></div>
         </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-badge">SerrAzul II</p>
+            <h1>Equipe de Segurança</h1>
+            <p class="hero-description">
+                Profissionais dedicados à proteção, monitoramento e tranquilidade da comunidade Serra Azul.
+            </p>
+        </div>
+    </section>
 
-    </div>
+    <!-- EQUIPE -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Nossa Equipe</h2>
+            <p class="section-subtitle">
+                Vigilância, atenção e comprometimento em todos os momentos para garantir mais segurança aos associados.
+            </p>
 
-</section>
+            <div class="team-grid">
+                <!-- EZEQUIEL -->
+                <div class="team-card">
+                    <img src="img/ezequiel.webp" alt="Ezequiel" class="team-image">
+                    <div class="team-content">
+                        <h3>Ezequiel</h3>
+                        <span class="team-role">Vigilante</span>
+                        <p>Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.</p>
+                    </div>
+                </div>
 
-<!-- CTA -->
-<section class="section-padding cta-section">
+                <!-- MÁRCIO -->
+                <div class="team-card">
+                    <img src="img/marcio.webp" alt="Márcio" class="team-image">
+                    <div class="team-content">
+                        <h3>Márcio</h3>
+                        <span class="team-role">Vigilante (Líder)</span>
+                        <p>Responsável pela coordenação da equipe de vigilância, organização operacional e acompanhamento das rotinas de segurança.</p>
+                    </div>
+                </div>
 
-    <div class="container">
+                <!-- JOSE -->
+                <div class="team-card">
+                    <img src="img/jose silva.webp" alt="José Silva" class="team-image">
+                    <div class="team-content">
+                        <h3>José Silva</h3>
+                        <span class="team-role">Vigilante</span>
+                        <p>Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.</p>
+                    </div>
+                </div>
 
-        <h2 class="title-gold">
-            Segurança e tranquilidade
-        </h2>
+                <!-- CARLOS -->
+                <div class="team-card">
+                    <img src="img/carlos.webp" alt="Carlos" class="team-image">
+                    <div class="team-content">
+                        <h3>Carlos</h3>
+                        <span class="team-role">Vigilante</span>
+                        <p>Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.</p>
+                    </div>
+                </div>
 
-        <p style="max-width:750px; margin:auto; line-height:1.9;">
+                <!-- SYDNEI -->
+                <div class="team-card">
+                    <img src="img/sydnei.webp" alt="Sydnei" class="team-image">
+                    <div class="team-content">
+                        <h3>Sydnei</h3>
+                        <span class="team-role">Vigilante</span>
+                        <p>Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.</p>
+                    </div>
+                </div>
 
-            Nossa equipe trabalha diariamente para garantir proteção, organização e bem-estar aos moradores e associados.
+                <!-- NATANAEL -->
+                <div class="team-card">
+                    <img src="img/natanael.webp" alt="Natanael" class="team-image">
+                    <div class="team-content">
+                        <h3>Natanael</h3>
+                        <span class="team-role">Vigilante (Líder)</span>
+                        <p>Responsável pela coordenação da equipe de vigilância, organization operacional e acompanhamento das rotinas de segurança.</p>
+                    </div>
+                </div>
 
-        </p>
+                <!-- JAISON -->
+                <div class="team-card">
+                    <img src="img/jaison.webp" alt="Jaison" class="team-image">
+                    <div class="team-content">
+                        <h3>Jaison</h3>
+                        <span class="team-role">Vigilante (Líder)</span>
+                        <p>Responsável pela coordenação da equipe de vigilância, organização operacional e acompanhamento das rotinas de segurança.</p>
+                    </div>
+                </div>
 
-        <a href="newsletter.html" class="btn-primary">
-            Receber Informativos
-        </a>
+                <!-- JEOVAN -->
+                <div class="team-card">
+                    <img src="img/jeovan.webp" alt="Jeovan" class="team-image">
+                    <div class="team-content">
+                        <h3>Jeovan</h3>
+                        <span class="team-role">Vigilante</span>
+                        <p>Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.</p>
+                    </div>
+                </div>
 
-    </div>
+                <!-- IRAQUITAN -->
+                <div class="team-card">
+                    <img src="img/iraquitan.webp" alt="Iraquitan" class="team-image">
+                    <div class="team-content">
+                        <h3>Iraquitan</h3>
+                        <span class="team-role">Vigilante</span>
+                        <p>Atua no monitoramento das áreas internas, controle de acesso e apoio à segurança preventiva da comunidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- CTA -->
+    <section class="section-padding cta-section">
+        <div class="container">
+            <h2 class="title-gold">Segurança e tranquilidade</h2>
+            <p style="max-width:750px; margin:auto; line-height:1.9;">
+                Nossa equipe trabalha diariamente para garantir proteção, organização e bem-estar aos moradores e associados.
+            </p>
+            <a href="newsletter.html" class="btn-primary">Receber Informativos</a>
+        </div>
+    </section>
 
-<!-- FOOTER -->
-<footer class="main-footer">
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2026 SerrAzul II • Todos os direitos reservados</p>
+            <p>Transparência • Comunidade • Evolução</p>
+        </div>
+    </footer>
 
-    <div class="container">
+    <!-- SCRIPT DO CARROSSEL -->
+    <script>
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
 
-        <p>
-            © 2026 SerrAzul II • Todos os direitos reservados
-        </p>
+        function changeSlide() {
+            if (slides.length === 0) return; // Evita erro se não houver slides
+            
+            slides[currentSlide].classList.remove('active');
+            currentSlide++;
 
-        <p>
-            Transparência • Comunidade • Evolução
-        </p>
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
 
-    </div>
-
-</footer>
-
-<!-- SCRIPT DO CARROSSEL -->
-<script>
-
-    const slides = document.querySelectorAll('.hero-slide');
-
-    let currentSlide = 0;
-
-    function changeSlide(){
-
-        slides[currentSlide].classList.remove('active');
-
-        currentSlide++;
-
-        if(currentSlide >= slides.length){
-            currentSlide = 0;
+            slides[currentSlide].classList.add('active');
         }
 
-        slides[currentSlide].classList.add('active');
-
-    }
-
-    setInterval(changeSlide, 5000);
-
-</script>
+        setInterval(changeSlide, 5000);
+    </script>
 
 </body>
-
 </html>
