@@ -1,78 +1,80 @@
-# 🏡 Portal Fazenda SerrAzul II
+🏡 Fazenda SerrAzul II
+Portal Institucional e de Comunicação
 
-Portal desenvolvido para promover a comunicação, participação e transparência entre os associados da Fazenda SerrAzul II.
+Portal web desenvolvido para a Fazenda SerrAzul II, com foco em comunicação, participação dos associados, acesso a informações e transparência.
 
-## 📋 Sobre o Projeto
+A plataforma reúne conteúdos institucionais e recursos para facilitar o relacionamento entre a administração e os associados, oferecendo uma experiência moderna, responsiva e acessível em diferentes dispositivos.
 
-O Portal SerrAzul foi criado para aproximar os associados da gestão, oferecendo um ambiente moderno e intuitivo para acesso a informações importantes, participação em votações e divulgação de benefícios.
+🌐 Acesse o projeto: https://fazenda-serrazul.vercel.app/
 
-## ✨ Funcionalidades
+✨ Funcionalidades
+🏡 Informações institucionais — apresentação e informações da Fazenda SerrAzul II
+🗳️ Votações — participação dos associados em decisões e consultas
+📰 Newsletter — acesso e divulgação de informações e comunicados
+🤝 Benefícios — apresentação de benefícios disponíveis aos associados
+👥 Comissões — informações sobre comissões e participação
+📄 Documentos oficiais — acesso organizado a documentos e informações relevantes
+👤 Colaboradores — informações sobre a equipe e colaboradores
+📱 Design responsivo — adaptação para computadores, tablets e smartphones
+🎨 Interface
 
-* 🏠 Página inicial institucional
-* 🗳️ Sistema de votação
-* 📩 Newsletter
-* 🎁 Clube de benefícios
-* 👥 Comissões consultivas
-* 🤝 Colaboradores
-* 📂 Download de documentos oficiais
-* 📱 Layout responsivo
+O projeto foi desenvolvido com foco em uma experiência institucional moderna, priorizando:
 
-## 🛠️ Tecnologias Utilizadas
-
-* HTML5
-* CSS3
-* JavaScript
-* Google Fonts (Montserrat)
-
-## 📁 Estrutura do Projeto
-
-```text
-Portal-Fazenda-SerrAzul
+Layout limpo e organizado
+Navegação intuitiva
+Responsividade
+Hierarquia visual
+Legibilidade
+Experiência consistente em diferentes dispositivos
+🛠️ Tecnologias
+HTML5
+CSS3
+JavaScript
+Responsive Web Design
+📂 Estrutura do Projeto
+fazenda-serrazul/
 │
 ├── index.html
-├── votar.html
-├── beneficios.html
-├── newsletter.html
-├── comissoes.html
-├── colaboradores.html
-│
-├── imagens/
-│   ├── logo serrazul.webp
-│   ├── imagem1.webp
-│   ├── imagem2.webp
-│   ├── imagem3.webp
-│   ├── imagem4.webp
-│   └── demais imagens do portal
-│
-├── documentos/
-│   ├── REGIMENTO-INTERNO.pdf
-│   ├── ESTATUTO-SOCIAL.pdf
-│   ├── codigo-obras.pdf
-│   └── facilities.pdf
-│
+├── css/
+│   └── ...
+├── js/
+│   └── ...
+├── img/
+│   └── ...
 └── README.md
-```
+🚀 Executando localmente
+1. Clone o repositório
+git clone https://github.com/awaldige/fazenda-serrazul.git
+2. Acesse a pasta
+cd fazenda-serrazul
+3. Execute o projeto
 
-## 🎯 Objetivo
+Por ser uma aplicação frontend, você pode abrir o index.html diretamente no navegador ou utilizar uma extensão como Live Server no VS Code.
 
-Promover uma gestão transparente e incentivar a participação dos associados na construção de um futuro melhor para a Fazenda SerrAzul II.
+🌐 Deploy
 
-## 🚀 Hospedagem
+O projeto está publicado na Vercel:
 
-O projeto pode ser publicado em:
+https://fazenda-serrazul.vercel.app/
 
-* GitHub Pages
-* Vercel
-* Netlify
+📱 Responsividade
 
-## ©️ Direitos
+A interface foi desenvolvida para funcionar em diferentes tamanhos de tela:
 
-© 2026 Fazenda SerrAzul
+💻 Desktop
+💻 Notebook
+📱 Smartphones
+📲 Tablets
+🎯 Objetivo do Projeto
 
-Todos os direitos reservados.
+O projeto tem como objetivo disponibilizar um portal digital moderno para centralizar informações da Fazenda SerrAzul II e facilitar a comunicação, participação e acesso a conteúdos relevantes pelos associados.
 
----
+👨‍💻 Desenvolvimento
 
-### Desenvolvido por
+Projeto desenvolvido por AW TECHNOLOGY.
 
-**AW Tecnology**
+💻 Desenvolvimento de sistemas web, aplicações personalizadas e soluções digitais para empresas e projetos institucionais.
+
+📄 Licença
+
+Este projeto foi desenvolvido para a Fazenda SerrAzul II. O código e os conteúdos presentes no repositório não devem ser reproduzidos ou utilizados comercialmente sem autorização.
