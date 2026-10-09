@@ -77,9 +77,13 @@ O projeto tem como objetivo disponibilizar um portal digital moderno para centra
 
 ## 👨‍💻 Desenvolvimento
 
-Projeto desenvolvido por AW TECHNOLOGY.
+André Waldige — AW TECHNOLOGY
 
-## 💻 Desenvolvimento de sistemas web, aplicações personalizadas e soluções digitais para empresas e projetos institucionais.
+GitHub: (https://github.com/awaldige)
+
+Portfólio: (https://andre-waldige.vercel.app)
+
+E-mail: awaldige@gmail.com
 
 ## 📄 Licença
 
